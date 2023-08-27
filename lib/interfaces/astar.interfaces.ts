@@ -1,29 +1,31 @@
 import { Heuristic } from '../types/astar.types';
 
 export interface IAStarFinderConstructor {
-  grid: IGridConstructor;
-  diagonalAllowed?: boolean;
-  heuristic?: Heuristic;
-  weight?: number;
-  includeStartNode?: boolean;
-  includeEndNode?: boolean;
-  allowPathAsCloseAsPossible?: boolean;
+	allowDiagonal?: boolean;
+	allowHorizontal?: boolean;
+	allowPathAsCloseAsPossible?: boolean;
+	allowVertical?: boolean;
+	grid: IGridConstructor;
+	heuristic?: Heuristic;
+	includeEndNode?: boolean;
+	includeStartNode?: boolean;
+	weight?: number;
 }
 
 export interface IGridConstructor {
-  width?: number;
-  height?: number;
-  matrix?: number[][];
-  densityOfObstacles?: number;
+	densityOfObstacles?: number;
+	height?: number;
+	matrix?: number[][];
+	width?: number;
 }
 
 export interface INodeConstructor {
-  id: number;
-  position: IPoint;
-  walkable?: boolean;
+	id: number;
+	position: IPoint;
+	walkable?: boolean;
 }
 
 export interface IPoint {
-  x: number;
-  y: number;
+	x: number;
+	y: number;
 }

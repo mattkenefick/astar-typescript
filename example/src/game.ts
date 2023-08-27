@@ -11,26 +11,26 @@ import { MainScene } from './scenes/main-scene';
 
 // main game configuration
 const config: Phaser.Types.Core.GameConfig = {
-  title: 'astar-typescript-example',
-  version: '1.0.0',
-  scale: {
-    width: '100%',
-    height: '100%',
-    parent: 'game',
-    mode: Phaser.Scale.ENVELOP
-  },
-  type: Phaser.AUTO,
-  scene: [BootScene, MainScene]
+	scale: {
+		height: '100%',
+		mode: Phaser.Scale.ENVELOP,
+		parent: 'game',
+		width: '100%'
+	},
+	scene: [BootScene, MainScene],
+	title: 'astar-typescript-example',
+	type: Phaser.AUTO,
+	version: '1.0.0'
 };
 
 // game class
 export class Game extends Phaser.Game {
-  constructor(config: Phaser.Types.Core.GameConfig) {
-    super(config);
-  }
+	constructor(config: Phaser.Types.Core.GameConfig) {
+		super(config);
+	}
 }
 
 // when the page is loaded, create our game instance
 window.addEventListener('load', () => {
-  const game = new Game(config);
+	const game = new Game(config);
 });

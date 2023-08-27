@@ -68,7 +68,7 @@ let AStarFinder = require('astar-typescript');
 
 ```javascript
 define(function (require, exports, module) {
-  let AStarFinder = require('astar-typescript');
+	let AStarFinder = require('astar-typescript');
 });
 ```
 
@@ -89,20 +89,20 @@ Using an **array** (hardcoded or from a Tilemap-Editor)
 
 ```ts
 let myMatrix = [
-  [0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1],
-  [0, 0, 1, 1, 0, 1, 1, 0],
-  [0, 0, 1, 0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 0, 0, 1, 0],
-  [1, 1, 1, 0, 1, 0, 1, 0],
-  [0, 0, 0, 0, 1, 0, 1, 0],
-  [0, 0, 1, 0, 0, 0, 0, 0]
+	[0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 1],
+	[0, 0, 1, 1, 0, 1, 1, 0],
+	[0, 0, 1, 0, 0, 0, 1, 0],
+	[0, 0, 0, 0, 0, 0, 1, 0],
+	[1, 1, 1, 0, 1, 0, 1, 0],
+	[0, 0, 0, 0, 1, 0, 1, 0],
+	[0, 0, 1, 0, 0, 0, 0, 0]
 ];
 
 this.aStarInstance = new AStarFinder({
-  grid: {
-    matrix: myMatrix
-  }
+	grid: {
+		matrix: myMatrix
+	}
 });
 ```
 
@@ -110,10 +110,10 @@ or randomly generated array **from width and height**
 
 ```ts
 this.aStarInstance = new AStarFinder({
-  grid: {
-    width: 8,
-    height: 8
-  }
+	grid: {
+		width: 8,
+		height: 8
+	}
 });
 ```
 
@@ -136,11 +136,11 @@ If you want to disable `diagonal movements`:
 
 ```ts
 this.aStarInstance = new AStarFinder({
-  grid: {
-    width: 8,
-    height: 8
-  },
-  diagonalAllowed: false
+	grid: {
+		width: 8,
+		height: 8
+	},
+	allowDiagonal: false
 });
 ```
 
@@ -150,11 +150,11 @@ Set the `heuristic function` (Manhattan, Euclidean, Chebyshev or Octile):
 
 ```ts
 this.aStarInstance = new AStarFinder({
-  grid: {
-    width: 8,
-    height: 8
-  },
-  heuristic: 'Manhattan'
+	grid: {
+		width: 8,
+		height: 8
+	},
+	heuristic: 'Manhattan'
 });
 ```
 
@@ -167,11 +167,11 @@ make the A* slower.
 
 ```ts
 this.aStarInstance = new AStarFinder({
-  grid: {
-    width: 8,
-    height: 8
-  },
-  weight: 0.7
+	grid: {
+		width: 8,
+		height: 8
+	},
+	weight: 0.7
 });
 ```
 
@@ -181,12 +181,12 @@ Include or Exclude the `start and end node`:
 
 ```ts
 this.aStarInstance = new AStarFinder({
-  grid: {
-    width: 8,
-    height: 8
-  },
-  includeStartNode: true,
-  includeEndNode: true
+	grid: {
+		width: 8,
+		height: 8
+	},
+	includeStartNode: true,
+	includeEndNode: true
 });
 ```
 
@@ -194,11 +194,11 @@ this.aStarInstance = new AStarFinder({
 
 ```ts
 this.aStarInstance = new AStarFinder({
-  grid: {
-    width: 8,
-    height: 8
-  },
-  allowPathAsCloseAsPossible: true
+	grid: {
+		width: 8,
+		height: 8
+	},
+	allowPathAsCloseAsPossible: true
 });
 ```
 

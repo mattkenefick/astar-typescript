@@ -11,70 +11,51 @@
 import * as dat from 'dat.gui';
 
 export class DatGuiService {
-  private gui: dat.GUI;
-  private controllers: dat.GUIController[];
+	private gui: dat.GUI;
+	private controllers: dat.GUIController[];
 
-  constructor() {
-    this.gui = new dat.GUI();
-    this.controllers = [];
-  }
+	constructor() {
+		this.gui = new dat.GUI();
+		this.controllers = [];
+	}
 
-  public addFolder(folderName: string): void {
-    this.gui.addFolder(folderName);
-  }
+	public addFolder(folderName: string): void {
+		this.gui.addFolder(folderName);
+	}
 
-  public addController(
-    controllerName: string,
-    target: Object,
-    propName: string,
-    hasController: boolean,
-    controllerFunction?: (value) => void,
-    items?: string[] | number[] | Object
-  ): void {
-    this.controllers.push(
-      this.gui.add(target, propName, items).name(controllerName)
-    );
+	public addController(
+		controllerName: string,
+		target: Object,
+		propName: string,
+		hasController: boolean,
+		controllerFunction?: (value) => void,
+		items?: string[] | number[] | Object
+	): void {
+		this.controllers.push(this.gui.add(target, propName, items).name(controllerName));
 
-    if (hasController) {
-      this.addOnChangeToController(
-        this.controllers[this.controllers.length - 1],
-        controllerFunction
-      );
-    }
-  }
+		if (hasController) {
+			this.addOnChangeToController(this.controllers[this.controllers.length - 1], controllerFunction);
+		}
+	}
 
-  public addNumberController(
-    controllerName: string,
-    target: Object,
-    propName: string,
-    hasController: boolean,
-    configNumber: { min: number; max: number; step: number },
-    controllerFunction?: (value) => void
-  ): void {
-    this.controllers.push(
-      this.gui
-        .add(
-          target,
-          propName,
-          configNumber.min,
-          configNumber.max,
-          configNumber.step
-        )
-        .name(controllerName)
-    );
+	public addNumberController(
+		controllerName: string,
+		target: Object,
+		propName: string,
+		hasController: boolean,
+		configNumber: { min: number; max: number; step: number },
+		controllerFunction?: (value) => void
+	): void {
+		this.controllers.push(
+			this.gui.add(target, propName, configNumber.min, configNumber.max, configNumber.step).name(controllerName)
+		);
 
-    if (hasController) {
-      this.addOnChangeToController(
-        this.controllers[this.controllers.length - 1],
-        controllerFunction
-      );
-    }
-  }
+		if (hasController) {
+			this.addOnChangeToController(this.controllers[this.controllers.length - 1], controllerFunction);
+		}
+	}
 
-  private addOnChangeToController(
-    controller: dat.GUIController,
-    onChangeFunction?: (value) => void
-  ): void {
-    controller.onChange(onChangeFunction);
-  }
+	private addOnChangeToController(controller: dat.GUIController, onChangeFunction?: (value) => void): void {
+		controller.onChange(onChangeFunction);
+	}
 }
